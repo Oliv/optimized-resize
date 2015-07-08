@@ -8,11 +8,12 @@ Inspiré de MDN <https://developer.mozilla.org/>
 Prérequis
 ----------
 
+Inclure jQuery
 Copier le répertoire du script dans js du projet
 
-Inclure le script (soit dans include/fo.entete.php et include/pseudo.entete.php, soit dans le fichier php voulu)
+Inclure le script
 
-    CMS::addJS(SERVER_ROOT . 'include/js/jquery.optimizedResize/1.0.1/jquery.optimizedResize.js');
+    <script src="js/optimized-resize/jquery.optimizedResize.js"></script>
 
 
 Utilisation
@@ -35,10 +36,12 @@ callback : une fonction qui sera jouée à chaque resize, en prenant en compte l
 Application
 ----------
 
-    $(document).ready(function() {
-        $.optimizedResize.add(function(i18n) {
-            ...
-
-            console.log('trigger à chaque resize');
-        });
-    });
+    <script>
+        (function($) {
+            $(document).ready(function() {
+                $.optimizedResize.add(function() {
+                    console.log('trigger à chaque resize');
+                });
+            });
+        })(jQuery);
+    </script>
